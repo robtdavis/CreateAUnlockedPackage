@@ -96,7 +96,7 @@
     ```
 15. To create the Released Package:
     ```
-    sfdx force:package:version:promote --package "Core@1.0.0-1"
+    sfdx package:version:promote --package "Core@1.0.0-1"
     ```
 16. To view a individual report on your package:
     ```
