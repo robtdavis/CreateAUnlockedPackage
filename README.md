@@ -113,8 +113,95 @@
     sfdx package:install --package "Core@1.0.0-1" --target-org test-cjplqklpgj8s4@example.com  --wait 10 --publish-wait 10
     ```
 
+# Adding Dependancies to a Package
 
+18. Update the sfdx-project.json file to include a depencies property and array of objects with dependencies.
+    ```
+        }
+        "packageDirectories": [
+                    {
+                    "path": "./core",
+                    "default": false,
+                    "package": "Core",
+                    "versionName": "ver 0.1",
+                    "versionNumber": "0.1.0.NEXT",
+                    "versionDescription": "Core fields and Objects"
+                    },
+                    {
+                    "path": "./permissions",
+                    "default": true,
+                    "dependencies": [
+                        {
+                        "package": "Core",
+                        "versionNumber": "0.1.0.LATEST"
+                        }
+                    ],
+                    "package": "Permissions",
+                    "versionName": "ver 0.1",
+                    "versionNumber": "0.1.0.NEXT",
+                    "versionDescription": "Permission Sets"
+                    }
+                ],
+                "name": "CreateFirstUnlockedPackage",
+                "namespace": "",
+                "sfdcLoginUrl": "https://login.salesforce.com",
+                "sourceApiVersion": "56.0",
+                "packageAliases": {
+                    "Core": "0HoDp0000004CHTKA2",
+                    "Core@0.1.0-1": "04tDp000000Ie4FIAS",
+                }
+            }
+        ```
 
+19. Create a package:
+    ```
+    sfdx package:create --name "Permissions" --package-type Unlocked --path "./permissions" --description "Permission Sets"
+    ```
+
+20. Create a version of the package:
+    ```
+    sfdx package:version:create --package "Permissions" --installation-key-bypass --wait 10 --target-dev-hub DevHub --code-coverage
+    ```
+21. Updated sfdx-project.json will look like the following:
+
+    ```
+            {
+            "packageDirectories": [
+                {
+                "path": "./core",
+                "default": false,
+                "package": "Core",
+                "versionName": "ver 0.1",
+                "versionNumber": "0.1.0.NEXT",
+                "versionDescription": "Core fields and Objects"
+                },
+                {
+                "path": "./permissions",
+                "default": true,
+                "dependencies": [
+                    {
+                    "package": "Core",
+                    "versionNumber": "0.1.0.LATEST"
+                    }
+                ],
+                "package": "Permissions",
+                "versionName": "ver 0.1",
+                "versionNumber": "0.1.0.NEXT",
+                "versionDescription": "Permission Sets"
+                }
+            ],
+            "name": "CreateFirstUnlockedPackage",
+            "namespace": "",
+            "sfdcLoginUrl": "https://login.salesforce.com",
+            "sourceApiVersion": "56.0",
+            "packageAliases": {
+                "Core": "0HoDp0000004CHTKA2",
+                "Core@0.1.0-1": "04tDp000000Ie4FIAS",
+                "Permissions": "0HoDp0000004CHYKA2",
+                "Permissions@0.1.0-1": "04tDp000000Ie4KIAS"
+            }
+        }
+    ```
 
 # Salesforce DX Project: Next Steps
 
