@@ -96,11 +96,11 @@
     ```
 15. To create the Released Package:
     ```
-    sfdx package:version:promote --package "Core@1.0.0-1"
+    sfdx package:version:promote --package "Core@0.1.0-1"
     ```
 16. To view a individual report on your package:
     ```
-    sfdx force:package:version:report --package "Core@1.0.0-1"
+    sfdx package:version:report --package "Core@0.1.0-1"
     ```
 17. To install in org from command line:
 
@@ -110,7 +110,7 @@
     ```
     Install package
     ```
-    sfdx package:install --package "Core@1.0.0-1" --target-org test-cjplqklpgj8s4@example.com  --wait 10 --publish-wait 10
+    sfdx package:install --package "Core@0.1.0-1" --target-org test-wyurp7jwavjw@example.com  --wait 10 --publish-wait 10
     ```
 
 # Adding Dependancies to a Package
