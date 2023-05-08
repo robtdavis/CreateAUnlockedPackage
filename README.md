@@ -11,7 +11,7 @@
 
 4. Authorize Dev Hub for Project
     ```
-    sfdx org login web --set-default-dev-hub DevHub
+    sfdx org login web --set-default-dev-hub --alias DevHub
     ```
 5. Packages use the sfdx-project.json as the root of all package data
     
