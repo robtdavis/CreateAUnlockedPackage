@@ -94,14 +94,15 @@
     ```
     sfdx package:create:version:list
     ```
-15. To create the Released Package:
-    ```
-    sfdx package:version:promote --package "Core@0.1.0-1"
-    ```
 16. To view a individual report on your package:
     ```
     sfdx package:version:report --package "Core@0.1.0-1"
     ```
+16. To create the Released Package:
+    ```
+    sfdx package:version:promote --package "Core@0.1.0-1"
+    ```
+
 17. To install in org from command line:
 
     Create scratch org:
