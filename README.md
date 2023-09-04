@@ -11,7 +11,7 @@
 
 4. Authorize Dev Hub for Project
     ```
-    sfdx org login web --set-default-dev-hub --alias DevHub
+    sf org login web --set-default-dev-hub --alias DevHub
     ```
 5. Packages use the sfdx-project.json as the root of all package data
     
@@ -38,14 +38,14 @@
 7. First we need to create a package named "Core" :
 
     ```
-    sfdx package:create --name "Core" --package-type Unlocked --path "./core" --description "Core fields and Objects" 
+    sf package:create --name "Core" --package-type Unlocked --path "./core" --description "Core fields and Objects" 
     ```
 8. You should get a Package Id returned starting with 0Ho and the sfdx-project.json will be updated to show the new Package Id.
 
 9. We will need to create a version of the package :
 
     ```
-    sfdx package:version:create --package "Core" --installation-key-bypass --wait 10 --target-dev-hub DevHub --code-coverage
+    sf package:version:create --package "Core" --installation-key-bypass --wait 10 --target-dev-hub DevHub --code-coverage
     ````
 10. Will get a response that it is creating the version. Will take a few minutes and return with a response similar to :
 
@@ -86,32 +86,39 @@
     ```
 13. Useful command to view the packages in your Dev Hub:
     ```
-    sfdx package:version:list
+    sf package:version:list
     ```
     Shows if the package is a beta or release package
 
 14. Shows all the ids associated with packages in your Dev Hub:
     ```
-    sfdx package:create:version:list
+    sf package:create:version:list
     ```
 16. To view a individual report on your package:
     ```
-    sfdx package:version:report --package "Core@0.1.0-1"
+    sf package:version:report --package "Core@0.1.0-1"
     ```
 16. To create the Released Package:
     ```
-    sfdx package:version:promote --package "Core@0.1.0-1"
+    sf package:version:promote --package "Core@0.1.0-1"
     ```
 
 17. To install in org from command line:
 
     Create scratch org:
     ```
-    sfdx force:org:create -s -f config/project-scratch-def.json
+    sf org:create:scratch -t -f config/project-scratch-def.json
+
     ```
     Install package
     ```
-    sfdx package:install --package "Core@0.1.0-1" --target-org test-wyurp7jwavjw@example.com  --wait 10 --publish-wait 10
+    sf package:install --package "Core@0.1.0-1" --target-org test-wyurp7jwavjw@example.com  --wait 10 --publish-wait 10
+
+    ```
+    Org Open
+    ```
+    sf org open
+    
     ```
 
 # Adding Dependancies to a Package
