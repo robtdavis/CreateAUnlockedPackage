@@ -118,7 +118,7 @@
     Org Open
     ```
     sf org open
-    
+
     ```
 
 # Adding Dependancies to a Package
@@ -163,12 +163,12 @@
 
 19. Create a package:
     ```
-    sfdx package:create --name "Permissions" --package-type Unlocked --path "./permissions" --description "Permission Sets"
+    sf package:create --name "Permissions" --package-type Unlocked --path "./permissions" --description "Permission Sets"
     ```
 
 20. Create a version of the package:
     ```
-    sfdx package:version:create --package "Permissions" --installation-key-bypass --wait 10 --target-dev-hub DevHub --code-coverage
+    sf package:version:create --package "Permissions" --installation-key-bypass --wait 10 --target-dev-hub DevHub --code-coverage
     ```
 21. Updated sfdx-project.json will look like the following:
 
