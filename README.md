@@ -84,26 +84,12 @@
         }
     }
     ```
-13. Useful command to view the packages in your Dev Hub:
-    ```
-    sf package:version:list
-    ```
-    Shows if the package is a beta or release package
-
-14. Shows all the ids associated with packages in your Dev Hub:
-    ```
-    sf package:create:version:list
-    ```
-16. To view a individual report on your package:
-    ```
-    sf package:version:report --package "Core@0.1.0-1"
-    ```
-16. To create the Released Package:
+13. To create the Released Package:
     ```
     sf package:version:promote --package "Core@0.1.0-1"
     ```
 
-17. To install in org from command line:
+14. To install in org from command line:
 
     Create scratch org:
     ```
@@ -117,8 +103,22 @@
     ```
     Org Open
     ```
-    sf org open
+    sf org open --target-org test-tajbchxphwdz@example
 
+    ```
+15. Useful command to view the packages in your Dev Hub:
+    ```
+    sf package:version:list
+    ```
+    Shows if the package is a beta or release package
+
+16. Shows all the ids associated with packages in your Dev Hub:
+    ```
+    sf package:create:version:list
+    ```
+17. To view a individual report on your package:
+    ```
+    sf package:version:report --package "Core@0.1.0-1"
     ```
 
 # Adding Dependancies to a Package
